@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+.semesters_row {
+  margin-top: 25px;
+}
+
+.input_table {
+  margin: auto;
+  max-width: 1200px;
+  margin-top: 30px;
+}
+
+.calc_menu {
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+
+.menu_btn {
+  margin-left: 32px;
+  margin-right: 32px;
+}
+
+.header {
+  margin-top: 32px;
+}
+
+.semester {
+  background-color: rgb(161, 22, 49);
+  color: antiquewhite;
+}
+
+.table_row_1 {
+  background-color: rgb(206, 63, 91);
+  color: antiquewhite;
+}
+
+.table_col_1 {
+  background-color: crimson;
+  color: antiquewhite;
+}
+
+.result {
+  background-color: rgb(161, 22, 49);
+  color: antiquewhite;
+}
