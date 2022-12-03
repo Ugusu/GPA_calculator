@@ -4,16 +4,186 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GPA calculator</title>
+    <title>GPA calculator - Transcript</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="transcript.css" />
   </head>
-  <body id="transcript_body">
-    <script src="script.js"></script>
+  <body>
+    <div class="row transcript">
+      <div class="col">
+        <div class="row page">
+          <div class="col transcript_page">
+            <div class="row header_row">
+              <div class="col header_cow">
+                <div class="row">
+                  <div class="col-2 university_logo_container">
+                    <img src="images/ASOIU_logo_3.svg" id="university_logo" />
+                  </div>
+                  <div class="col university_details_container">
+                    <div class="row university_name">
+                      <div class="col">
+                        <p>AZERBAIJAN STATE OIL AND INDUSTRY UNIVERSITY</p>
+                      </div>
+                    </div>
+
+                    <div class="row transcript_title">
+                      <div class="col">
+                        <p>ACADEMIC TRANSCRIPT</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row student_details">
+                  <div class="col student_details_col">
+                    <div class="row">
+                      <p id="faculty" class="col">Faculty:</p>
+                      <p id="faculty_blank" class="col">/FACULTY/</p>
+                    </div>
+
+                    <div class="row">
+                      <p id="surname_and_name" class="col">Surname and Name:</p>
+                      <p id="surname_and_name_blank" class="col">
+                        /NAME SURNAME/
+                      </p>
+                    </div>
+
+                    <div class="row">
+                      <p id="date_of_birth" class="col">Date of Birth:</p>
+                      <p id="date_of_birth_blank" class="col">/DD.MM.YYYY/</p>
+                    </div>
+                  </div>
+
+                  <div class="col student_details_col">
+                    <div class="row">
+                      <p id="specialty" class="col">Specialty:</p>
+                      <p id="specialty_blank" class="col">/SPECIALTY/</p>
+                    </div>
+
+                    <div class="row">
+                      <p id="degree_of_edu" class="col">Degree of Education:</p>
+                      <p id="degree_of_edu_blank" class="col">/DEGREE/</p>
+                    </div>
+
+                    <div class="row">
+                      <p id="language_of_inst" class="col">
+                        Language of Instruction:
+                      </p>
+                      <p id="language_of_inst_blank" class="col">/LANGUAGE/</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row table_container_row">
+              <!--Table-->
+              <div class="col table_subjects"></div>
+            </div>
+
+            <div class="row footer_row">
+              <div class="col footer_col">
+                <div class="row transcript_details">
+                  <div class="col grading_system">
+                    <!--Grading-->
+                    <p class="grading_title">Grading:</p>
+                    <table class="grade_definition">
+                      <tr>
+                        <td>91-100</td>
+                        <td>A</td>
+                        <td>Excellent</td>
+                      </tr>
+                      <tr>
+                        <td>81-90</td>
+                        <td>B</td>
+                        <td>Very Good</td>
+                      </tr>
+                      <tr>
+                        <td>71-80</td>
+                        <td>C</td>
+                        <td>Good</td>
+                      </tr>
+                      <tr>
+                        <td>61-70</td>
+                        <td>D</td>
+                        <td>Satisfyingly</td>
+                      </tr>
+                      <tr>
+                        <td>51-60</td>
+                        <td>E</td>
+                        <td>Credited/Passed</td>
+                      </tr>
+                      <tr>
+                        <td>0-50</td>
+                        <td>F</td>
+                        <td>Failed</td>
+                      </tr>
+                    </table>
+                  </div>
+
+                  <div class="col totals">
+                    <!--Totals-->
+                    <div class="row">
+                      <p class="col">Total Credits</p>
+                      <p class="col" id="total_credits_blank">/00.0/</p>
+                    </div>
+                    <div class="row">
+                      <p class="col">Total GPA</p>
+                      <p class="col" id="total_GPA_blank">/00.00/</p>
+                    </div>
+                    <div class="row">
+                      <p class="col">Education Start:</p>
+                      <p class="col" id="edu_start_blank">/DD.MM.YYYY/</p>
+                    </div>
+                    <div class="row">
+                      <p class="col">Education End</p>
+                      <p class="col" id="edu_end_blank">/DD.MM.YYYY/</p>
+                    </div>
+                  </div>
+
+                  <div class="col date">
+                    <!--Date-->
+                    <div class="row">
+                      <p class="col">Date of Issue:</p>
+                      <p class="col" id="date_issue_blank">/DD.MM.YYYY/</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row responsibles">
+                  <div class="col names">
+                    <!--Names-->
+                    <p id="responsible_1">/POSITION TITLE SURNAME NAME/</p>
+                    <p id="responsible_2">/POSITION TITLE SURNAME NAME/</p>
+                  </div>
+
+                  <div class="col-3 signatures">
+                    <!--Signatures-->
+                    <p id="signature_1">__________________________</p>
+                    <p id="signature_2">__________________________</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row text-center">
+      <button class="col btn btn-success" id="btn_download">Download</button>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/printThis/1.15.0/printThis.min.js"
+      integrity="sha512-d5Jr3NflEZmFDdFHZtxeJtBzk0eB+kkRXWFQqEc1EKmolXjHm2IKCA7kTvXBNjIYzjXfD5XzIjaaErpkZHCkBg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="transcript.js"></script>
   </body>
 </html>

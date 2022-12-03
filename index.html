@@ -15,46 +15,124 @@
   </head>
   <body>
     <section class="header text-center">
-        <h1>GPA calculator</h1>
+        <h1>GPA calculator (ASOIU transcript creation tool)</h1>
         <h2>Fill the table and calculate</h2>
+        <h2>PRESS Calculate BEFORE Exporting</h2>
+        <h3>Exporting will create will create a transcript for ASOIU</h3>
+    </section>
+    <section class="details_input_container container col-12 levelformcontainer">
+      <div class="row">
+        <div class="col">
+          <div class="row details_input_row">
+            <div class="col details_input_col">
+              <label class="row">Name</label>
+              <input class="row" id="name_input" type="text" placeholder="Name" maxlength="60"/>
+            </div>
+
+            <div class="col details_input_col">
+              <label class="row">Surname</label>
+              <input class="row" id="surname_input" type="text" placeholder="Surname" maxlength="60"/>
+            </div>
+
+            <div class="col details_input_col">
+              <label class="row">Date of Birth</label>
+              <input class="row" id="date_birth_input" type="date" placeholder="Date"/>
+            </div>
+          </div>
+
+          <div class="row details_input_row">
+            <div class="col details_input_col">
+              <label class="row">Faculty</label>
+              <input class="row" id="faculty_input" type="text" placeholder="Faculty" maxlength="180"/>
+            </div>
+
+            <div class="col details_input_col">
+              <label class="row">Specialty</label>
+              <input class="row" id="specialty_input" type="text" placeholder="Specialty" maxlength="180"/>
+            </div>
+
+            <div class="col details_input_col">
+              <label class="row">Degree of Education</label>
+              <input class="row" id="degree_input" type="text" placeholder="Degree of Education" maxlength="60"/>
+            </div>
+          </div>
+
+          <div class="row details_input_row">
+            <div class="col details_input_col">
+              <label class="row">Language of Instruction</label>
+              <input class="row" id="language_input" type="text" placeholder="Language of Instruction" maxlength="60"/>
+            </div>
+
+            <div class="col details_input_col">
+              <label class="row">Education Start Date</label>
+              <input class="row" id="edu_start_input" type="date" placeholder="Start Date"/>
+            </div>
+
+            <div class="col details_input_col">
+              <label class="row">Education End Date</label>
+              <input class="row" id="edu_end_input" type="date" placeholder="End Date"/>
+            </div>
+          </div>
+
+          <div class="row details_input_row">
+            <div class="col details_input_col">
+              <label class="row">Position, Title and Name Surname of the Responsible Person</label>
+              <input class="row responsible_input" type="text" placeholder="Head of Department Ph.D Jane Doe" maxlength="180"/>
+            </div>
+          </div>
+
+          <div class="row details_input_row">
+            <div class="col details_input_col">
+              <label class="row">Position, Title and Name Surname of the Responsible Person</label>
+              <input class="row responsible_input" type="text" placeholder="Head of Department Ph.D John Doe" maxlength="180"/>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
     <section
       class="input_table container col-12 levelformcontainer"
     >
       <div class="input_table_content row">
-        <div class="col">
+        <div class="col semesters_col">
           <!-- First line of semesters-->
           <div class="row gx-5 semesters_row">
             <div class="col">
               <div class="row">
                 <div class="col text-center border border-dark semester">
-                  <label>Semester I</label>
+                  <label class="semester_text">Semester I</label>
                 </div>
               </div>
               <div class="row table_row_1">
-                <div class="col text-center border border-dark">
+                <div class="col-2 text-center border border-dark">
                   <label>#</lVbel>
                 </div>
-                <div class="col text-center border border-dark">
+                <div class="col-6 text-center border border-dark"> Subject</div>
+                <div class="col-2 text-center border border-dark">
                   <label>Credits</label>
                 </div>
-                <div class="col text-center border border-dark">
+                <div class="col-2 text-center border border-dark">
                   <label>Grade</label>
                 </div>
               </div>
               <div class="row">
-                <div class="col text-center border border-dark table_col_1">
+                <div class="col-2 text-center border border-dark table_col_1">
                   <label>1</label>
                 </div>
+                <input class="col-6 form-group border border-dark subject_input"
+                type="text"
+                placeholder="Subject"
+                maxlength="100"
+                />
                 <input
-                  class="col form-group border border-dark credit_input"
+                  class="col-2 form-group border border-dark credit_input"
                   type="number"
                   placeholder="0.0"
                   maxlength="2"
                   oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                 />
                 <input
-                  class="col form-group border border-dark grade_input"
+                  class="col-2 form-group border border-dark grade_input"
                   type="number"
                   placeholder="0.00"
                   maxlength="5"
@@ -62,18 +140,23 @@
                 />
               </div>
               <div class="row">
-                <div class="col text-center border border-dark table_col_1">
+                <div class="col-2 text-center border border-dark table_col_1">
                   <label>2</label>
                 </div>
+                <input class="col-6 form-group border border-dark subject_input"
+                type="text"
+                placeholder="Subject"
+                maxlength="100"
+                />
                 <input
-                  class="col form-group border border-dark credit_input"
+                  class="col-2 form-group border border-dark credit_input"
                   type="number"
                   placeholder="0.0"
                   maxlength="2"
                   oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                 />
                 <input
-                  class="col form-group border border-dark grade_input"
+                  class="col-2 form-group border border-dark grade_input"
                   type="number"
                   placeholder="0.00"
                   maxlength="5"
@@ -81,18 +164,23 @@
                 />
               </div>
               <div class="row">
-                <div class="col text-center border border-dark table_col_1">
+                <div class="col-2 text-center border border-dark table_col_1">
                   <label>3</label>
                 </div>
+                <input class="col-6 form-group border border-dark subject_input"
+                type="text"
+                placeholder="Subject"
+                maxlength="100"
+                />
                 <input
-                  class="col form-group border border-dark credit_input"
+                  class="col-2 form-group border border-dark credit_input"
                   type="number"
                   placeholder="0.0"
                   maxlength="2"
                   oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                 />
                 <input
-                  class="col form-group border border-dark grade_input"
+                  class="col-2 form-group border border-dark grade_input"
                   type="number"
                   placeholder="0.00"
                   maxlength="5"
@@ -100,18 +188,23 @@
                 />
               </div>
               <div class="row">
-                <div class="col text-center border border-dark table_col_1">
+                <div class="col-2 text-center border border-dark table_col_1">
                   <label>4</label>
                 </div>
+                <input class="col-6 form-group border border-dark subject_input"
+                type="text"
+                placeholder="Subject"
+                maxlength="100"
+                />
                 <input
-                  class="col form-group border border-dark credit_input"
+                  class="col-2 form-group border border-dark credit_input"
                   type="number"
                   placeholder="0.0"
                   maxlength="2"
                   oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                 />
                 <input
-                  class="col form-group border border-dark grade_input"
+                  class="col-2 form-group border border-dark grade_input"
                   type="number"
                   placeholder="0.00"
                   maxlength="5"
@@ -119,18 +212,23 @@
                 />
               </div>
               <div class="row">
-                <div class="col text-center border border-dark table_col_1">
+                <div class="col-2 text-center border border-dark table_col_1">
                   <label>5</label>
                 </div>
+                <input class="col-6 form-group border border-dark subject_input"
+                type="text"
+                placeholder="Subject"
+                maxlength="100"
+                />
                 <input
-                  class="col form-group border border-dark credit_input"
+                  class="col-2 form-group border border-dark credit_input"
                   type="number"
                   placeholder="0.0"
                   maxlength="2"
                   oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                 />
                 <input
-                  class="col form-group border border-dark grade_input"
+                  class="col-2 form-group border border-dark grade_input"
                   type="number"
                   placeholder="0.00"
                   maxlength="5"
@@ -138,65 +236,34 @@
                 />
               </div>
               <div class="row">
-                <div class="col text-center border border-dark table_col_1">
+                <div class="col-2 text-center border border-dark table_col_1">
                   <label>6</label>
                 </div>
+                <input class="col-6 form-group border border-dark subject_input"
+                type="text"
+                placeholder="Subject"
+                maxlength="100"
+                />
                 <input
-                  class="col form-group border border-dark credit_input"
+                  class="col-2 form-group border border-dark credit_input"
                   type="number"
                   placeholder="0.0"
                   maxlength="2"
                   oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                 />
                 <input
-                  class="col form-group border border-dark grade_input"
+                  class="col-2 form-group border border-dark grade_input"
                   type="number"
                   placeholder="0.00"
                   maxlength="5"
                   oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                 />
               </div>
+              
+              
               <div class="row">
                 <div class="col text-center border border-dark table_col_1">
-                  <label>7</label>
-                </div>
-                <input
-                  class="col form-group border border-dark credit_input"
-                  type="number"
-                  placeholder="0.0"
-                  maxlength="2"
-                  oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                />
-                <input
-                  class="col form-group border border-dark grade_input"
-                  type="number"
-                  placeholder="0.00"
-                  maxlength="5"
-                  oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                />
-              </div>
-              <div class="row">
-                <div class="col text-center border border-dark table_col_1">
-                  <label>8</label>
-                </div>
-                <input
-                  class="col form-group border border-dark credit_input"
-                  type="number"
-                  placeholder="0.0"
-                  maxlength="2"
-                  oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                />
-                <input
-                  class="col form-group border border-dark grade_input"
-                  type="number"
-                  placeholder="0.00"
-                  maxlength="5"
-                  oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                />
-              </div>
-              <div class="row">
-                <div class="col text-center border border-dark table_col_1">
-                  <label>Current</label>
+                  <label>Current Credits / GPA</label>
                 </div>
                 <div class="col border border-dark result">
                   <label class="current_credit">0</label>
@@ -207,7 +274,7 @@
               </div>
               <div class="row">
                 <div class="col text-center border border-dark table_col_1">
-                  <label>Total</label>
+                  <label>Total Credits / GPA</label>
                 </div>
                 <div class="col border border-dark result">
                     <label class="total_credits">0</label>
@@ -220,33 +287,39 @@
             <div class="col">
               <div class="row">
                 <div class="col text-center border border-dark semester">
-                  <label>Semester II</label>
+                  <label class="semester_text">Semester II</label>
                 </div>
               </div>
               <div class="row table_row_1">
-                <div class="col text-center border border-dark">
+                <div class="col-2 text-center border border-dark">
                   <label>#</lVbel>
                 </div>
-                <div class="col text-center border border-dark">
+                <div class="col-6 text-center border border-dark"> Subject</div>
+                <div class="col-2 text-center border border-dark">
                   <label>Credits</label>
                 </div>
-                <div class="col text-center border border-dark">
+                <div class="col-2 text-center border border-dark">
                   <label>Grade</label>
                 </div>
               </div>
               <div class="row">
-                <div class="col text-center border border-dark table_col_1">
+                <div class="col-2 text-center border border-dark table_col_1">
                   <label>1</label>
                 </div>
+                <input class="col-6 form-group border border-dark subject_input"
+                type="text"
+                placeholder="Subject"
+                maxlength="100"
+                />
                 <input
-                  class="col form-group border border-dark credit_input"
+                  class="col-2 form-group border border-dark credit_input"
                   type="number"
                   placeholder="0.0"
                   maxlength="2"
                   oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                 />
                 <input
-                  class="col form-group border border-dark grade_input"
+                  class="col-2 form-group border border-dark grade_input"
                   type="number"
                   placeholder="0.00"
                   maxlength="5"
@@ -254,18 +327,23 @@
                 />
               </div>
               <div class="row">
-                <div class="col text-center border border-dark table_col_1">
+                <div class="col-2 text-center border border-dark table_col_1">
                   <label>2</label>
                 </div>
+                <input class="col-6 form-group border border-dark subject_input"
+                type="text"
+                placeholder="Subject"
+                maxlength="100"
+                />
                 <input
-                  class="col form-group border border-dark credit_input"
+                  class="col-2 form-group border border-dark credit_input"
                   type="number"
                   placeholder="0.0"
                   maxlength="2"
                   oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                 />
                 <input
-                  class="col form-group border border-dark grade_input"
+                  class="col-2 form-group border border-dark grade_input"
                   type="number"
                   placeholder="0.00"
                   maxlength="5"
@@ -273,18 +351,23 @@
                 />
               </div>
               <div class="row">
-                <div class="col text-center border border-dark table_col_1">
+                <div class="col-2 text-center border border-dark table_col_1">
                   <label>3</label>
                 </div>
+                <input class="col-6 form-group border border-dark subject_input"
+                type="text"
+                placeholder="Subject"
+                maxlength="100"
+                />
                 <input
-                  class="col form-group border border-dark credit_input"
+                  class="col-2 form-group border border-dark credit_input"
                   type="number"
                   placeholder="0.0"
                   maxlength="2"
                   oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                 />
                 <input
-                  class="col form-group border border-dark grade_input"
+                  class="col-2 form-group border border-dark grade_input"
                   type="number"
                   placeholder="0.00"
                   maxlength="5"
@@ -292,18 +375,23 @@
                 />
               </div>
               <div class="row">
-                <div class="col text-center border border-dark table_col_1">
+                <div class="col-2 text-center border border-dark table_col_1">
                   <label>4</label>
                 </div>
+                <input class="col-6 form-group border border-dark subject_input"
+                type="text"
+                placeholder="Subject"
+                maxlength="100"
+                />
                 <input
-                  class="col form-group border border-dark credit_input"
+                  class="col-2 form-group border border-dark credit_input"
                   type="number"
                   placeholder="0.0"
                   maxlength="2"
                   oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                 />
                 <input
-                  class="col form-group border border-dark grade_input"
+                  class="col-2 form-group border border-dark grade_input"
                   type="number"
                   placeholder="0.00"
                   maxlength="5"
@@ -311,18 +399,23 @@
                 />
               </div>
               <div class="row">
-                <div class="col text-center border border-dark table_col_1">
+                <div class="col-2 text-center border border-dark table_col_1">
                   <label>5</label>
                 </div>
+                <input class="col-6 form-group border border-dark subject_input"
+                type="text"
+                placeholder="Subject"
+                maxlength="100"
+                />
                 <input
-                  class="col form-group border border-dark credit_input"
+                  class="col-2 form-group border border-dark credit_input"
                   type="number"
                   placeholder="0.0"
                   maxlength="2"
                   oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                 />
                 <input
-                  class="col form-group border border-dark grade_input"
+                  class="col-2 form-group border border-dark grade_input"
                   type="number"
                   placeholder="0.00"
                   maxlength="5"
@@ -330,18 +423,23 @@
                 />
               </div>
               <div class="row">
-                <div class="col text-center border border-dark table_col_1">
+                <div class="col-2 text-center border border-dark table_col_1">
                   <label>6</label>
                 </div>
+                <input class="col-6 form-group border border-dark subject_input"
+                type="text"
+                placeholder="Subject"
+                maxlength="100"
+                />
                 <input
-                  class="col form-group border border-dark credit_input"
+                  class="col-2 form-group border border-dark credit_input"
                   type="number"
                   placeholder="0.0"
                   maxlength="2"
                   oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                 />
                 <input
-                  class="col form-group border border-dark grade_input"
+                  class="col-2 form-group border border-dark grade_input"
                   type="number"
                   placeholder="0.00"
                   maxlength="5"
@@ -350,45 +448,7 @@
               </div>
               <div class="row">
                 <div class="col text-center border border-dark table_col_1">
-                  <label>7</label>
-                </div>
-                <input
-                  class="col form-group border border-dark credit_input"
-                  type="number"
-                  placeholder="0.0"
-                  maxlength="2"
-                  oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                />
-                <input
-                  class="col form-group border border-dark grade_input"
-                  type="number"
-                  placeholder="0.00"
-                  maxlength="5"
-                  oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                />
-              </div>
-              <div class="row">
-                <div class="col text-center border border-dark table_col_1">
-                  <label>8</label>
-                </div>
-                <input
-                  class="col form-group border border-dark credit_input"
-                  type="number"
-                  placeholder="0.0"
-                  maxlength="2"
-                  oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                />
-                <input
-                  class="col form-group border border-dark grade_input"
-                  type="number"
-                  placeholder="0.00"
-                  maxlength="5"
-                  oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                />
-              </div>
-              <div class="row">
-                <div class="col text-center border border-dark table_col_1">
-                  <label>Current</label>
+                  <label>Current Credits / GPA</label>
                 </div>
                 <div class="col border border-dark result">
                   <label class="current_credit">0</label>
@@ -399,7 +459,7 @@
               </div>
               <div class="row">
                 <div class="col text-center border border-dark table_col_1">
-                  <label>Total</label>
+                  <label>Total Credits / GPA</label>
                 </div>
                 <div class="col border border-dark result">
                     <label class="total_credits">0</label>
@@ -409,6 +469,10 @@
                   </div>
               </div>
             </div>
+          </div>
+          
+          <!-- Second line of semesters-->
+          <!-- <div class="row gx-5 semesters_row">
             <div class="col">
               <div class="row">
                 <div class="col text-center border border-dark semester">
@@ -793,10 +857,9 @@
                   </div>
               </div>
             </div>
-            
-          </div>
-          <!-- Second line of semesters-->
-          <div class="row gx-5 semesters_row">
+          </div> -->
+          <!-- Third line of semesters-->
+          <!-- <div class="row gx-5 semesters_row">
             <div class="col">
               <div class="row">
                 <div class="col text-center border border-dark semester">
@@ -1180,7 +1243,11 @@
                     <label class="total_gpa">0</label>
                   </div>
               </div>
-            </div>
+            </div>      
+          </div> -->
+
+          <!-- Forth line of semesters-->
+          <!-- <div class="row gx-5 semesters_row">
             <div class="col">
               <div class="row">
                 <div class="col text-center border border-dark semester">
@@ -1564,8 +1631,8 @@
                     <label class="total_gpa">0</label>
                   </div>
               </div>
-            </div>       
-          </div>
+            </div> 
+          </div> -->
         </div>
       </div>
     </section>
@@ -1573,6 +1640,7 @@
     <section class="text-center calc_menu">
         <button class="btn btn-success col-3 text-center menu_btn btn_calc">Calculate</button>
         <button class="btn btn-primary col-3 text-center menu_btn btn_clean">Clean</button>
+        <button class="btn btn-dark col-3 text-center menu_btn btn_export">Export</button>
     </section>
     <script src="script.js"></script>
   </body>

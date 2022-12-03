@@ -56,3 +56,19 @@ input[type='number'] {
   background-color: rgb(161, 22, 49);
   color: antiquewhite;
 }
+
+.details_input_container {
+  margin: auto;
+  max-width: 1200px;
+  margin-top: 30px;
+  background: darkred;
+  color: antiquewhite;
+}
+
+.details_input_col {
+  margin: 8px;
+}
+
+.responsible_input {
+  width: 800px;
+}

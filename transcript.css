@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding: 20px;
+}
+
+.transcript {
+  width: 21cm;
+  max-height: 29.7cm;
+  padding: 1cm;
+  margin: 1cm auto;
+  border: 1px #d3d3d3 solid;
+  border-radius: 5px;
+  background: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+p {
+  margin-bottom: 0;
+}
+
+.university_name {
+  font-weight: bold;
+  text-decoration: underline;
+  font-size: 18px;
+  padding: auto;
+}
+
+.student_details {
+  margin-top: 0.2cm;
+}
+
+.student_details p {
+  font-size: 10px;
+}
+
+.grading_title {
+  font-weight: bold;
+  font-size: 10px;
+}
+
+.grade_definition tr,
+td {
+  font-size: 9px;
+  border: 2px solid black;
+  border-collapse: collapse;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.totals p {
+  font-size: 9px;
+  font-weight: bold;
+}
+
+.date p {
+  font-size: 9px;
+  font-weight: bold;
+}
+
+.responsibles {
+  margin-top: 12px;
+}
+
+.responsibles p {
+  font-size: 10px;
+  font-weight: bold;
+  margin-top: 0.2cm;
+}
+
+.names {
+  text-align: right;
+}
+
+.table_subjects {
+  margin-top: 0.2cm;
+  margin-bottom: 0.2cm;
+}
+
+.table_subjects td {
+  font-size: 9px;
+}
+
+.transcript_col_sems {
+  writing-mode: tb-rl;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+  width: 0.5cm;
+}
+
+.transcript_col_nums {
+  text-align: center;
+  width: 1cm;
+}
+
+#university_logo {
+  height: 1.5cm;
+}
+
+#btn_download {
+  width: 320px;
+  margin-bottom: 32px;
+  margin-left: 400px;
+  margin-right: 400px;
+}
+
+.transcript_title {
+  font-size: 16px;
+  padding: auto;
+}
+
+.university_logo_container {
+  padding-right: 0;
+  width: fit-content;
+}
+
+@media print {
+  @page {
+    margin: 0;
+    margin-left: 1cm;
+    margin-right: 1cm;
+  }
+}

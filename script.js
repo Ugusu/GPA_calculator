@@ -1,35 +1,94 @@
 'use strict';
 
+const semestersRow = document.querySelector('.semesters_row');
+const semestersCol = document.querySelector('.semesters_col');
+for (let i = 0; i < 3; i++) {
+  semestersCol.appendChild(semestersRow.cloneNode(true));
+}
+
 const fieldsCredits = document.getElementsByClassName('credit_input');
 const fieldsGrades = document.getElementsByClassName('grade_input');
+const fieldsSubjects = document.getElementsByClassName('subject_input');
 
 const currentCreditsFields = document.querySelectorAll('.current_credit');
 const currentGPAsFields = document.querySelectorAll('.current_gpa');
 const totalCreditsFields = document.querySelectorAll('.total_credits');
 const totalGPAsFields = document.querySelectorAll('.total_gpa');
 
+const studentName = document.getElementById('name_input');
+const studentSurname = document.getElementById('surname_input');
+const studentDateBirth = document.getElementById('date_birth_input');
+
+const faculty = document.getElementById('faculty_input');
+const specialty = document.getElementById('specialty_input');
+const degree = document.getElementById('degree_input');
+
+const langEducation = document.getElementById('language_input');
+const eduStart = document.getElementById('edu_start_input');
+const eduEnd = document.getElementById('edu_end_input');
+
+const responsibles = document.querySelectorAll('.responsible_input');
+
 const btnClean = document.querySelector('.btn_clean');
 const btnCalc = document.querySelector('.btn_calc');
+const btnExport = document.querySelector('.btn_export');
+
+const romanNums = {
+  1: 'I',
+  2: 'II',
+  3: 'III',
+  4: 'IV',
+  5: 'V',
+  6: 'VI',
+  7: 'VII',
+  8: 'VIII',
+};
+
+const textSemester = document.querySelectorAll('.semester_text');
+for (let i = 0; i < textSemester.length; i++) {
+  textSemester[i].textContent = `Semester ${romanNums[i + 1]}`;
+}
 
 // To get all inputs, after some event (click of button)
 function getInputs() {
   const grades = [];
   const credits = [];
+  const subjs = [];
+  const details = {
+    name: studentName.value.trim(),
+    surname: studentSurname.value.trim(),
+    birth_date: studentDateBirth.value,
+
+    faculty: faculty.value.trim(),
+    specialty: specialty.value.trim(),
+    degree: degree.value.trim(),
+    langEducation: langEducation.value.trim(),
+
+    eduStart: eduStart.value,
+    eduEnd: eduEnd.value,
+
+    responsible_1: responsibles[0].value.trim(),
+    responsible_2: responsibles[1].value.trim(),
+  };
 
   for (let i = 0; i < 8; i++) {
     const semGrades = [];
     const semCredits = [];
+    const semSubjs = [];
 
-    for (let j = i * 8; j < i * 8 + 8; j++) {
+    for (let j = i * 6; j < i * 6 + 6; j++) {
       semGrades.push(Number(fieldsGrades[j].value));
 
       semCredits.push(Number(fieldsCredits[j].value));
+
+      semSubjs.push(fieldsSubjects[j].value);
     }
 
     grades.push(semGrades);
     credits.push(semCredits);
+    subjs.push(semSubjs);
   }
-  return [credits, grades];
+  return [credits, grades, subjs, details];
 }
 
 // To calculate GPA for given credits and grades
@@ -56,7 +115,6 @@ function calcGPA(credits, grades) {
 // To calculate local (current) GPAs for all semesters
 function calcCurrentGPAs(credits, grades) {
   const currentGPAs = [];
-
   if (credits.length === grades.length) {
     for (let i = 0; i < credits.length; i++) {
       currentGPAs.push(calcGPA(credits[i], grades[i]));
@@ -76,13 +134,18 @@ function calcTotalGPAs(credits, grades) {
       let totalSemGrades = [];
       let semTotalGPA = 0;
 
-      for (let j = 0; j <= i; j++) {
-        totalSemCredits = [...totalSemCredits, ...credits[j]];
-        totalSemGrades = [...totalSemGrades, ...grades[j]];
-      }
+      const creditSet = new Set(credits[i]);
+      if (creditSet.size === 1 && creditSet.has(0)) {
+        totalGPAs.push('0.00');
+      } else {
+        for (let j = 0; j <= i; j++) {
+          totalSemCredits = [...totalSemCredits, ...credits[j]];
+          totalSemGrades = [...totalSemGrades, ...grades[j]];
+        }
 
-      semTotalGPA = calcGPA(totalSemCredits, totalSemGrades);
-      totalGPAs.push(semTotalGPA);
+        semTotalGPA = calcGPA(totalSemCredits, totalSemGrades);
+        totalGPAs.push(semTotalGPA);
+      }
     }
 
     return totalGPAs;
@@ -143,6 +206,17 @@ function fillTable(currentCredits, currentGPAs, totalCredits, totalGPAs) {
 function init() {
   //const initCredits = new Array(fieldsCredits.length).fill('0.0');
   //const initGrades = new Array(fieldsGrades.length).fill('0.00');
+  /* const savedData = JSON.parse(localStorage.getItem('inputData'));
+  const {
+    details,
+    subjs,
+    credits,
+    grades,
+    currentCredits,
+    totalCredits,
+    currentGPAs,
+    totalGPAs,
+  } = savedData; */
   const initCurrentCredits = new Array(currentCreditsFields.length).fill('0.0');
   const initCurrentGPAs = new Array(currentGPAsFields.length).fill('0.00');
   const initTotalCredits = new Array(totalCreditsFields.length).fill('0.0');
@@ -158,7 +232,23 @@ function init() {
   for (let i = 0; i < fieldsCredits.length; i++) {
     fieldsCredits[i].value = undefined;
     fieldsGrades[i].value = undefined;
+    fieldsSubjects[i].value = '';
   }
+
+  /* for (let i = 0; i < fieldsCredits.length; i++) {
+    for (let j = i * 6; j < j + 6; j++) {
+      console.log(credits[Math.trunc(i)]);
+      fieldsCredits[j].value = credits[Math.trunc(i)][j];
+      fieldsGrades[j].value = grades[Math.trunc(i)][j];
+      fieldsSubjects[j].value = subjs[Math.trunc(i)][j];
+    }
+  } */
+}
+
+// Saving to local memory
+function saveLocal(title, value) {
+  localStorage.removeItem(title);
+  localStorage.setItem(title, JSON.stringify(value));
 }
 
 // Loading the Page
@@ -171,7 +261,7 @@ btnClean.addEventListener('click', function () {
 
 // Calculate
 btnCalc.addEventListener('click', function () {
-  const [credits, grades] = getInputs();
+  const [credits, grades, subjs, details] = getInputs();
 
   const currentCredits = sumCurrentCredits(credits);
   const totalCredits = sumTotalCredits(credits);
@@ -180,4 +270,29 @@ btnCalc.addEventListener('click', function () {
   const totalGPAs = calcTotalGPAs(credits, grades);
 
   fillTable(currentCredits, currentGPAs, totalCredits, totalGPAs);
+
+  const inputData = {
+    details,
+    subjs,
+    credits,
+    grades,
+    currentCredits,
+    totalCredits,
+    currentGPAs,
+    totalGPAs,
+  };
+  saveLocal('inputData', inputData);
+
+  /* saveLocal('credits', credits);
+  saveLocal('grades', grades);
+  saveLocal('currentCredits', currentCredits);
+  saveLocal('totalCredits', totalCredits);
+  saveLocal('currentGPAs', currentGPAs);
+  saveLocal('totalGPAs', totalGPAs); */
 });
+
+btnExport.addEventListener('click', function () {
+  window.open('transcript.html', '_blank');
+});
+
+console.log(JSON.parse(localStorage.getItem('inputData')));
