@@ -100,6 +100,7 @@ totalGPAs.unshift('Total GPA');
 gradeLetters.unshift('Grade in Letter');
 semesters.unshift('');
 subjs.unshift('Name of the Subject');
+console.log(totalCredits);
 
 const tableData = [
   semesters,
@@ -187,7 +188,6 @@ function createSubjectTabel() {
     const tr = tbl.insertRow();
     for (let j = 0; j < 9; j++) {
       const td = tr.insertCell();
-      console.log(tableData[i][j]);
       if (i === 0 || j === 0) {
         td.appendChild(document.createTextNode(tableData[j][i]));
       } else if (1 <= j && j <= 4) {
