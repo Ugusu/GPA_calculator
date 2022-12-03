@@ -21,7 +21,7 @@ const responsibleSecond = document.getElementById('responsible_2');
 
 // Opening data from local memory
 function openLocalMemory(title) {
-  const data = localStorage.getItem(title);
+  const data = sessionStorage.getItem(title);
   return JSON.parse(data);
 }
 

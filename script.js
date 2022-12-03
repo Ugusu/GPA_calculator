@@ -247,8 +247,8 @@ function init() {
 
 // Saving to local memory
 function saveLocal(title, value) {
-  localStorage.removeItem(title);
-  localStorage.setItem(title, JSON.stringify(value));
+  sessionStorage.removeItem(title);
+  sessionStorage.setItem(title, JSON.stringify(value));
 }
 
 // Loading the Page
