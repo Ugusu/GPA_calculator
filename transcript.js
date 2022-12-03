@@ -93,8 +93,8 @@ for (let i = 0; i < 6; i++) {
 
 credits.unshift('Credits');
 grades.unshift('Grade in Points');
-currentCredits.unshift('Semes- ter Credis');
-totalCredits.unshift('Total ECTS');
+currentCredits.unshift('Semes- ter Credits');
+totalCredits.unshift('Total Credits');
 currentGPAs.unshift('GPA');
 totalGPAs.unshift('Total GPA');
 gradeLetters.unshift('Grade in Letter');
