@@ -225,7 +225,7 @@ $(document).ready(function () {
     $('.page').printThis({
       importCSS: true,
       importStyle: true,
-      loadCSS: 'transcript.css',
+      loadCSS: './transcript.css',
     });
   });
 });
