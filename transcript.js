@@ -222,7 +222,11 @@ function createSubjectTabel() {
 
 $(document).ready(function () {
   $('#btn_download').click(function () {
-    $('.page').printThis();
+    $('.page').printThis({
+      importCSS: true,
+      importStyle: true,
+      loadCSS: 'transcript.css',
+    });
   });
 });
 
