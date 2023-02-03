@@ -19,6 +19,11 @@ const dateIssueBlank = document.getElementById('date_issue_blank');
 const responsibleFirst = document.getElementById('responsible_1');
 const responsibleSecond = document.getElementById('responsible_2');
 
+const btnToggleLogo = document.getElementById('btn_logo_toggle');
+const logos = {0: 'images/ASOIU_logo_1.svg', 1: 'images/ASOIU_logo_2.svg', 2: 'images/ASOIU_logo_3.svg', 3: 'images/ASOIU_logo_4.svg', 4:'',
+              'images/ASOIU_logo_1.svg': 0, 'images/ASOIU_logo_2.svg': 1, 'images/ASOIU_logo_3.svg': 2, 'images/ASOIU_logo_4.svg': 3, '': 4};
+const logo = document.getElementById('university_logo');
+
 // Opening data from local memory
 function openLocalMemory(title) {
   const data = sessionStorage.getItem(title);
@@ -100,7 +105,7 @@ totalGPAs.unshift('Total GPA');
 gradeLetters.unshift('Grade in Letter');
 semesters.unshift('');
 subjs.unshift('Name of the Subject');
-console.log(totalCredits);
+// console.log(totalCredits);
 
 const tableData = [
   semesters,
@@ -219,6 +224,12 @@ function createSubjectTabel() {
 
   subTabel.appendChild(tbl);
 }
+
+btnToggleLogo.addEventListener('click', function(){
+  const logoId = logos[logo.getAttribute('src')]==4?0:logos[logo.getAttribute('src')]+1;
+  console.log(logoId);
+  logo.setAttribute('src', logos[logoId])
+})
 
 $(document).ready(function () {
   $('#btn_download').click(function () {

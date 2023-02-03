@@ -230,8 +230,8 @@ function init() {
   );
 
   for (let i = 0; i < fieldsCredits.length; i++) {
-    fieldsCredits[i].value = undefined;
-    fieldsGrades[i].value = undefined;
+    fieldsCredits[i].value = '';
+    fieldsGrades[i].value = '';
     fieldsSubjects[i].value = '';
   }
 
@@ -294,5 +294,31 @@ btnCalc.addEventListener('click', function () {
 btnExport.addEventListener('click', function () {
   window.open('transcript.html', '_blank');
 });
+
+semestersCol.addEventListener('keydown', function(event){
+  const key = event.key;
+  const target_class = event.target.classList[event.target.classList.length - 1];
+  const childId = {'subject_input':1, 'credit_input':2, 'grade_input':3};
+  console.log(event.target.parentNode)
+
+  switch(key){
+    case 'ArrowUp':
+      event.preventDefault;
+      event.target.parentNode.previousSibling.previousSibling.children[childId[target_class]].focus();
+      break;
+      
+    case 'ArrowDown':
+      event.target.parentNode.nextSibling.nextSibling.children[childId[target_class]].focus();
+      break;
+
+    case 'ArrowLeft':
+      event.target.parentNode.children[childId[target_class]-1].focus();
+      break;
+    
+    case 'ArrowRight':
+      event.target.parentNode.children[childId[target_class]+1].focus();
+      break;
+  }
+})
 
 console.log(JSON.parse(localStorage.getItem('inputData')));

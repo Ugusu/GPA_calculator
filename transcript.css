@@ -103,7 +103,7 @@ td {
   height: 1.5cm;
 }
 
-#btn_download {
+.btn_custom {
   width: 320px;
   margin-bottom: 32px;
   margin-left: 400px;
