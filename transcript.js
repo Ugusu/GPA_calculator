@@ -81,7 +81,7 @@ for (let i = 0; i < grades.length; i++) {
 }
 
 let numSubj = 0;
-for (let i = 0; i < 6; i++) {
+for (let i = 0; i < 8; i++) {
   subjs.push([]);
   for (let j = 0; j < 6; j++) {
     if (subjs[i][j]) {
