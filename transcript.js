@@ -179,7 +179,7 @@ function fillDetails() {
     currentDate.getDate()
   }.${
     (String(currentDate.getMonth()).length === 1 &&
-      '0' + currentDate.getMonth()) ||
+      '0' + (currentDate.getMonth()+1)) ||
     currentDate.getMonth()
   }.${currentDate.getFullYear()}`;
 }
