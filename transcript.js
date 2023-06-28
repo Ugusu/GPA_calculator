@@ -229,7 +229,6 @@ btnToggleLogo.addEventListener('click', function(){
 btnDownloadJson.addEventListener('click', function() {
   const data = openLocalMemory('inputData');
   const jsonStr = JSON.stringify(data);
-  console.log(jsonStr);
   const blob = new Blob([jsonStr], { type: 'application/json' });
   const url = URL.createObjectURL(blob);
   const link = document.createElement('a');
