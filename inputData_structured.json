@@ -1,0 +1,105 @@
+{
+    "details":{
+        "name":"Ughur",
+        "surname":"Mammadzada",
+        "birth_date":"2001-07-01",
+        "faculty":"SABAH",
+        "specialty":"Computer Engineering",
+        "degree":"Bachelor",
+        "langEducation":"English",
+        "eduStart":"2019-09-15",
+        "eduEnd":"2023-06-30",
+        "responsible_1":"Vice-rector for International Relations Doc. Rafiq Jamalov",
+        "responsible_2":"Chief if SABAH Centet Doc. Arzu Ibrahimova"
+    },
+    "subjs":[
+        [
+            "Fundamentals of Computer Engineering",
+            "Computer Architecture",
+            "Foreign Language - 1",
+            "Linear Algebra and Mathematical Analysis",
+            "Physics",
+            ""
+        ],
+        [
+            "Azerbaijani Language and Culture of Speech",
+            "Fundamentals of Programming",
+            "Foreign Language - 2",
+            "Functions of Several Complex Variables",
+            "History of Azerbaijan",
+            "Operating Systems"
+        ],
+        [
+            "Circuit Theory",
+            "Data Structure and Algorithms",
+            "Differential Equations",
+            "Discrete Mathematics",
+            "Foreign Language - 3",
+            "Microprocessors"
+        ],
+        [
+            "Basics of Electronics",
+            "Computer Graphics",
+            "Computer Networks",
+            "Foreign Language - 4",
+            "Probability Theory and Statistics",
+            "Web-systems and Technologies"
+        ],
+        [
+            "Data Structure and Database Systems",
+            "Digital Systems",
+            "Economics and Management of Production",
+            "Foreign Language - 5",
+            "Mobile and Parallel Computer Systems",
+            "Programming of Mobile Devices"
+        ],
+        [
+            "Basics of Management",
+            "Circuit Design of Computers and Microprocessor Systems",
+            "Safety of Life Activity",
+            "Foreign Language - 6",
+            "Operation Research",
+            "Software Engineering and Design"
+        ],
+        [
+            "Civil Defense",
+            "Computer Modeling of Electrical Circuits",
+            "Internet Technologies",
+            "Knowledge Engineering",
+            "Security of Computer Systems",
+            "Simulations of Systems"
+        ],
+        [
+            "Internship",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
+    ],
+    "credits":[
+        [6,6,5,6,6,0],
+        [3,6,5,4,6,6],
+        [6,6,4,4,6,6],
+        [6,4,6,6,4,5],
+        [7,6,4,6,5,5],
+        [4,7,5,6,5,4],
+        [3,5,5,6,6,6],
+        [30,0,0,0,0,0]
+    ],
+    "grades":[
+        [90,94,94,63,71,0],
+        [100,92,96,93,81,98],
+        [94,89,71,83,100,92],
+        [92,93,83,100,86,97],
+        [99,100,100,100,100,93],
+        [100,100,100,100,98,100],
+        [95,98,97,91,100,100],
+        [92,0,0,0,0,0]
+    ],
+    "currentCredits":["29.0","30.0","32.0","31.0","33.0","31.0","31.0","30.0"],
+    "totalCredits":["29.0","59.0","91.0","122.0","155.0","186.0","217.0","247.0"],
+    "currentGPAs":["82.00","92.60","89.56","91.97","98.73","99.68","96.97","92.00"],
+    "totalGPAs":["82.00","87.39","88.15","89.12","91.17","92.59","93.21","93.06"]
+}

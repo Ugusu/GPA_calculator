@@ -24,6 +24,8 @@ const logos = {0: 'images/ASOIU_logo_1.svg', 1: 'images/ASOIU_logo_2.svg', 2: 'i
               'images/ASOIU_logo_1.svg': 0, 'images/ASOIU_logo_2.svg': 1, 'images/ASOIU_logo_3.svg': 2, 'images/ASOIU_logo_4.svg': 3, '': 4};
 const logo = document.getElementById('university_logo');
 
+const btnDownloadJson = document.getElementById('btn_download_json');
+
 // Opening data from local memory
 function openLocalMemory(title) {
   const data = sessionStorage.getItem(title);
@@ -42,12 +44,6 @@ const {
   totalGPAs,
 } = inputData;
 
-/* const credits = openLocalMemory('credits');
-const grades = openLocalMemory('grades');
-const currentCredits = openLocalMemory('currentCredits');
-const totalCredits = openLocalMemory('totalCredits');
-const currentGPAs = openLocalMemory('currentGPAs');
-const totalGPAs = openLocalMemory('totalGPAs'); */
 const gradeLetters = [];
 const semesters = [
   'Semester I',
@@ -227,8 +223,24 @@ function createSubjectTabel() {
 
 btnToggleLogo.addEventListener('click', function(){
   const logoId = logos[logo.getAttribute('src')]==4?0:logos[logo.getAttribute('src')]+1;
-  console.log(logoId);
   logo.setAttribute('src', logos[logoId])
+})
+
+btnDownloadJson.addEventListener('click', function() {
+  const data = openLocalMemory('inputData');
+  const jsonStr = JSON.stringify(data);
+  console.log(jsonStr);
+  const blob = new Blob([jsonStr], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = 'inputData.json';
+  link.style.display = 'none';
+
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
 })
 
 $(document).ready(function () {
@@ -243,15 +255,3 @@ $(document).ready(function () {
 
 fillDetails();
 createSubjectTabel();
-
-/* console.log(
-  credits,
-  grades,
-  currentCredits,
-  totalCredits,
-  currentGPAs,
-  totalGPAs,
-  gradeLetters,
-  semesters,
-  subjects
-); */

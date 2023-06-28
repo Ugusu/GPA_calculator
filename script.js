@@ -29,9 +29,12 @@ const eduEnd = document.getElementById('edu_end_input');
 
 const responsibles = document.querySelectorAll('.responsible_input');
 
+const jsonFileInput = document.getElementById('json_file');
+
 const btnClean = document.querySelector('.btn_clean');
 const btnCalc = document.querySelector('.btn_calc');
 const btnExport = document.querySelector('.btn_export');
+const btrFill = document.querySelector('.btn_fill');
 
 const romanNums = {
   1: 'I',
@@ -192,31 +195,59 @@ function sumTotalCredits(credits) {
   return totalCredits;
 }
 
+// Fill subject, credits and grades
+function fillTranscript(subjects=null, credits=null, grades=null){
+  const length = credits ? credits.length : fieldsCredits.length;
+  for (let i = 0; i < length; i++){
+    fieldsCredits[i].value = credits ? credits[i] : '';
+    fieldsGrades[i].value = grades ? grades[i] : '';
+    fieldsSubjects[i].value = subjects ? subjects[i] : '';
+  } 
+}
+
 // To fill last two rows of the tables (Current and Total fields) with calculated variables
-function fillTable(currentCredits, currentGPAs, totalCredits, totalGPAs) {
-  for (let i = 0; i < currentCredits.length; i++) {
-    currentCreditsFields[i].textContent = currentCredits[i];
-    currentGPAsFields[i].textContent = currentGPAs[i];
-    totalCreditsFields[i].textContent = totalCredits[i];
-    totalGPAsFields[i].textContent = totalGPAs[i];
+function fillTable(currentCredits, currentGPAs, totalCredits, totalGPAs, fromStorage=false) {
+  if(!fromStorage){
+    for (let i = 0; i < currentCredits.length; i++) {
+      currentCreditsFields[i].textContent = currentCredits[i];
+      currentGPAsFields[i].textContent = currentGPAs[i];
+      totalCreditsFields[i].textContent = totalCredits[i];
+      totalGPAsFields[i].textContent = totalGPAs[i];
+    }
+  }else{
+    const storageInput = getLocal('inputData');
+
+    studentName.value = storageInput.details.name;
+    studentSurname.value = storageInput.details.surname;
+    studentDateBirth.value = storageInput.details.birth_date;
+
+    faculty.value = storageInput.details.faculty;
+    specialty.value = storageInput.details.specialty;
+    degree.value = storageInput.details.degree;
+
+    langEducation.value = storageInput.details.langEducation;
+    eduStart.value = storageInput.details.eduStart;
+    eduEnd.value = storageInput.details.eduEnd;
+
+    responsibles[0].value = storageInput.details.responsible_1;
+    responsibles[1].value = storageInput.details.responsible_2;
+
+    let allSubj = [];
+    let allCredits = [];
+    let allGrades = [];
+
+    for (let i = 0; i < storageInput.credits.length; i++) {
+      allSubj = [...allSubj, ...storageInput.subjs[i]];
+      allCredits = [...allCredits, ...storageInput.credits[i]];
+      allGrades = [...allGrades, ...storageInput.grades[i]];
+    }
+
+    fillTranscript(allSubj, allCredits, allGrades);
   }
 }
 
 // Initial conditions
 function init() {
-  //const initCredits = new Array(fieldsCredits.length).fill('0.0');
-  //const initGrades = new Array(fieldsGrades.length).fill('0.00');
-  /* const savedData = JSON.parse(localStorage.getItem('inputData'));
-  const {
-    details,
-    subjs,
-    credits,
-    grades,
-    currentCredits,
-    totalCredits,
-    currentGPAs,
-    totalGPAs,
-  } = savedData; */
   const initCurrentCredits = new Array(currentCreditsFields.length).fill('0.0');
   const initCurrentGPAs = new Array(currentGPAsFields.length).fill('0.00');
   const initTotalCredits = new Array(totalCreditsFields.length).fill('0.0');
@@ -229,20 +260,7 @@ function init() {
     initTotalGPAs
   );
 
-  for (let i = 0; i < fieldsCredits.length; i++) {
-    fieldsCredits[i].value = '';
-    fieldsGrades[i].value = '';
-    fieldsSubjects[i].value = '';
-  }
-
-  /* for (let i = 0; i < fieldsCredits.length; i++) {
-    for (let j = i * 6; j < j + 6; j++) {
-      console.log(credits[Math.trunc(i)]);
-      fieldsCredits[j].value = credits[Math.trunc(i)][j];
-      fieldsGrades[j].value = grades[Math.trunc(i)][j];
-      fieldsSubjects[j].value = subjs[Math.trunc(i)][j];
-    }
-  } */
+  fillTranscript();
 }
 
 // Saving to local memory
@@ -251,8 +269,32 @@ function saveLocal(title, value) {
   sessionStorage.setItem(title, JSON.stringify(value));
 }
 
+// Getting from local memory
+function getLocal(title) {
+  const value = sessionStorage.getItem(title);
+  return JSON.parse(value);
+}
+
 // Loading the Page
 init();
+
+jsonFileInput.addEventListener('change', function (event) {
+  const file = event.target.files[0];
+
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    let fileContent = e.target.result;
+    fileContent = JSON.parse(fileContent);
+    saveLocal('inputData', fileContent);
+  };
+
+  reader.readAsText(file);
+})
+
+// Fill from a json file
+btrFill.addEventListener('click', function() {
+  fillTable(null, null, null, null, true);
+})
 
 // Clean the table
 btnClean.addEventListener('click', function () {
@@ -282,13 +324,6 @@ btnCalc.addEventListener('click', function () {
     totalGPAs,
   };
   saveLocal('inputData', inputData);
-
-  /* saveLocal('credits', credits);
-  saveLocal('grades', grades);
-  saveLocal('currentCredits', currentCredits);
-  saveLocal('totalCredits', totalCredits);
-  saveLocal('currentGPAs', currentGPAs);
-  saveLocal('totalGPAs', totalGPAs); */
 });
 
 btnExport.addEventListener('click', function () {
@@ -299,7 +334,6 @@ semestersCol.addEventListener('keydown', function(event){
   const key = event.key;
   const target_class = event.target.classList[event.target.classList.length - 1];
   const childId = {'subject_input':1, 'credit_input':2, 'grade_input':3};
-  console.log(event.target.parentNode)
 
   switch(key){
     case 'ArrowUp':
@@ -320,5 +354,3 @@ semestersCol.addEventListener('keydown', function(event){
       break;
   }
 })
-
-console.log(JSON.parse(localStorage.getItem('inputData')));
